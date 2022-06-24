@@ -1,0 +1,72 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <link rel='stylesheet' type='text/css' href="{% static 'css/login.css' %}">
+    {% comment %} <h2>Fastkart: Sign in/up Form</h2> {% endcomment %}
+    <div class='login-body'>
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> 
+        {% endfor %}
+
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form class='login-form' action="{% url 'createUser' %}" method='POST'>
+                    {% csrf_token %}
+                    <h1 class='login-h1'>Create Account</h1>
+                    <input type="text" name='username' placeholder="Username" />
+                    <input type="email" name='email' placeholder="Email" />
+                    <input type="password" name='password' placeholder="Password" />
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form class='login-form' action="{% url 'login' %}" method='POST'>
+                    {% csrf_token %}
+                    <h1 class='login-h1'>Sign in</h1>
+                    <input type="text" name='username' placeholder="Username" />
+                    <input type="password" name='password' placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1 style="color: white;" class='login-h1'>Welcome Back!</h1>
+                        <p class='login-p'>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1 style="color: white;" class='login-h1'>Hello, Friend!</h1>
+                        <p class='login-p'>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const signUpButton = document.getElementById("signUp");
+        const signInButton = document.getElementById("signIn");
+        const container = document.getElementById("container");
+
+        signUpButton.addEventListener("click", () => {
+            container.classList.add("right-panel-active");
+        });
+        signInButton.addEventListener("click", () => {
+            container.classList.remove("right-panel-active");
+        });
+        {% comment %} for message in messages{
+            var messages='{{message}}'
+            console.log(messages)
+        } {% endcomment %}
+
+        {% comment %} document.getElementById('login-status'). {% endcomment %}
+        
+    </script>
+{% endblock %}

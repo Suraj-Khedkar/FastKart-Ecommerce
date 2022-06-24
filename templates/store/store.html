@@ -1,0 +1,41 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}    
+    <div class='container'>
+        <div class="alert alert-primary" role="alert" id='hi-message'>
+	        Hi, {{request.user}} continue shopping
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> 
+        {% endfor %}
+
+        <div class="row">
+            {% for product in products %}
+            <div class="col-lg-4">
+                <img src={{ product.imageURL }} alt="placeholder" class="thumbnail">
+                <div class="box-element product">
+                    <h6><Strong>{{product.name}}</Strong></h6>
+                    <hr>
+                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    <a href="#" class="btn btn-outline-success">View</a>
+                    <h4 style="display:inline-block;float: right;" ><span>&#8377;</span>{{ product.price| floatformat:2}}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        if(user =='AnonymousUser'){
+            document.getElementById('hi-message').classList.add('hidden')
+        }
+    </script>
+{% endblock content %}
