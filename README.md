@@ -1,6 +1,9 @@
 # FastKart-Ecommerce
 FastKart is an Ecommerce website developed to order products within a second
 
+## Live
+https://fastkart-ecommerce.herokuapp.com/
+
 ## Screenshots
   
 ![Screenshot (284)](https://user-images.githubusercontent.com/68546999/175492011-44434ebc-69f1-40fb-a2db-ebc17c888dda.png)
