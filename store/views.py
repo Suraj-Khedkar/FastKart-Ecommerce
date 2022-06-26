@@ -1,4 +1,3 @@
-from email import message
 import json
 from django.shortcuts import redirect, render
 from django.http import JsonResponse
@@ -7,7 +6,6 @@ import datetime
 from .utils import cartData,guestOrder
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User,auth
-from django.contrib.auth import authenticate
 from django.contrib import messages
 # Create your views here.
 
