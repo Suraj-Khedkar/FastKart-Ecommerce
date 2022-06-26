@@ -1,5 +1,10 @@
 # FastKart-Ecommerce
-FastKart is an Ecommerce website developed to order products within a second
+FastKart is an Ecommerce website developed to make ordering products faster
+
+## Features
+- **Shop without the need to login** -> just add to cart and checkout with you name and email (fastkart saves you cart in you browser cookies itself)
+- **Payment made secured** -> fastkart uses faster and secure *Paypal Payment Gateway* (payments using credit and debit card are also accepted)
+- **Login in to fastkart** -> signup to fastkart to save your cart contents to our database
 
 ## Live
 https://fastkart-ecommerce.herokuapp.com/
@@ -14,5 +19,6 @@ https://fastkart-ecommerce.herokuapp.com/
 ![Screenshot (282)](https://user-images.githubusercontent.com/68546999/175492079-3b011585-5a59-4979-9d73-f0a4a3c0a688.png)
 
 ## Follow the instruction to run locally
-1. git clone the repository<br>
-2. run `python manage.py runsever`
+:arrow_right:  git clone the repository<br>
+:arrow_right: run `python manage.py runsever`
+
